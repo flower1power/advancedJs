@@ -6,6 +6,8 @@
   60-55 секунд 54-52 секунды 51 секунда
 */
 
+
+//* Явно есть решение интерестнее, но что-то не придумал
 function variants(number, many, xz, one) {
   const mod10 = number % 10;
   const mod100 = number % 100;
