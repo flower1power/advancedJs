@@ -1,0 +1,14 @@
+.date {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.date div {
+  background-color: white;
+  padding: 20px;
+  min-width: 80px;
+  min-height: 20px;
+  border-radius: 10px;
+}
