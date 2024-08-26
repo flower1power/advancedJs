@@ -9,21 +9,33 @@ const Hero = function (race, name, language) {
   };
 };
 
-Hero.prototype.weapon = null;
-Hero.prototype.hit = function () {
+const Orc = function (race, name, language, weapon) {
+  Hero.call(this, race, name, language);
+  this.weapon = weapon;
+};
+
+Orc.prototype = Object.create(Hero.prototype);
+Orc.prototype.constructor = Orc;
+
+Orc.prototype.hit = function () {
   console.log("Удар");
 };
 
-const Orc = new Hero("Orc", "Turgor", "Russian");
-Orc.weapon = "Axe";
-console.log(Orc);
-Orc.speak();
-Orc.hit();
+const Elf = function (race, name, language, typeSpell) {
+  Hero.call(this, race, name, language);
+  this.typeSpell = typeSpell;
+};
 
-Hero.prototype.typeSpell = null;
-Hero.prototype.castSpell = function () {
+Elf.prototype = Object.create(Hero.prototype);
+Elf.prototype.constructor = Elf;
+
+Elf.prototype.castSpell = function () {
   console.log("Произносит заклинание");
 };
-const Elf = new Hero("Elf", "Elfo", "Itali");
 
-console.log(Elf);
+const Elf = new Elf("Elf", "Elfo", "Italy", "Orb");
+const Orc = new Orc("Orc", "Turgor", "ARGHH", "Axe");
+Elf.speak();
+Orc.speak();
+Elf.castSpell();
+Orc.hit();

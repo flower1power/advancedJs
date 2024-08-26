@@ -15,6 +15,9 @@ class Car {
   }
 
   set setMileage(newMileage) {
+    if(this.#_mileage > newMileage) {
+      return console.log('Скручивать не хорошо')
+    }
     this.#_mileage = newMileage;
   }
 

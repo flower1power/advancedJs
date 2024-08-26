@@ -6,7 +6,6 @@
   60-55 секунд 54-52 секунды 51 секунда
 */
 
-
 //* Явно есть решение интерестнее, но что-то не придумал
 function variants(number, many, xz, one) {
   const mod10 = number % 10;
@@ -21,27 +20,14 @@ function variants(number, many, xz, one) {
   }
 }
 
-function calculateTimeLeft(endDate) {
-  const date = new Date().getTime();
-  const timeLeft = endDate - date;
+function calculateTimeLeft(timeLeft) {
+  const second = Math.floor((timeLeft / 1000) % 60);
+  const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
+  const hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
+  const days = Math.floor((timeLeft / (1000 * 60 * 60 * 24)) % 30);
+  const months = Math.floor((timeLeft / (1000 * 60 * 60 * 24 * 30)) % 12);
 
-  const months = Intl.DateTimeFormat("ru-RU", { month: "numeric" }).format(
-    timeLeft
-  );
-  const days = Intl.DateTimeFormat("ru-RU", { day: "numeric" }).format(
-    timeLeft
-  );
-  const hours = Intl.DateTimeFormat("ru-RU", { hour: "numeric" }).format(
-    timeLeft
-  );
-  const minutes = Intl.DateTimeFormat("ru-RU", { minute: "numeric" }).format(
-    timeLeft
-  );
-  const seconds = Intl.DateTimeFormat("ru-RU", { second: "numeric" }).format(
-    timeLeft
-  );
-
-  return { months, days, hours, minutes, seconds };
+  return { months, days, hours, minutes, second };
 }
 
 function render(timeLeft) {
@@ -70,7 +56,7 @@ function render(timeLeft) {
     "минуты",
     "минута"
   )}`;
-  document.querySelector(".second").innerHTML = `${timeLeft.seconds} ${variants(
+  document.querySelector(".second").innerHTML = `${timeLeft.second} ${variants(
     timeLeft.seconds,
     "секунд",
     "секунды",
@@ -78,9 +64,11 @@ function render(timeLeft) {
   )}`;
 }
 
-const endDate = new Date(2024, 11, 31).getTime();
+const endDate = new Date(2025, 11, 31).getTime();
+let timeLeft = endDate - new Date().getTime();
 
 setInterval(() => {
-  const timeLeft = calculateTimeLeft(endDate);
-  render(timeLeft);
+  timeLeft -= 1000;
+  const calc = calculateTimeLeft(timeLeft);
+  render(calc);
 }, 1000);
