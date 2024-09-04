@@ -1,7 +1,7 @@
 'use strict';
 
-import {User} from './user.js';
-import {Task} from './task.js';
+import {User} from './module/user.js';
+import {Task} from './module/task.js';
 
 const task = new Task('HELLO');
 const user = new User(task);
