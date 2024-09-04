@@ -1,0 +1,31 @@
+{
+  "name": "advanced_js",
+  "version": "1.0.0",
+  "description": "ДЗ по продвинотому JS",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup ./userTask/index.js --file bundle.js --format cjs && echo 'building complete!'",
+    "live": "live-server ./ --open=userTask/index.html",
+    "start": "npm ci && npm run build && npm run live",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flower1power/advancedJs.git"
+  },
+  "keywords": [
+    "homework"
+  ],
+  "author": "Lobyntsev Viktor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flower1power/advancedJs/issues"
+  },
+  "homepage": "https://github.com/flower1power/advancedJs#readme",
+  "devDependencies": {
+    "rollup": "^4.21.2"
+  },
+  "dependencies": {
+    "live-server": "^1.2.2"
+  }
+}
