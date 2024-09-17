@@ -1,0 +1,29 @@
+body{
+    text-align: center;
+}
+
+.button {
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 10px;
+    min-width: 110px;
+    min-height: 25px;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.counter{
+    border-radius: 10px;
+    border: 1px solid #333;
+    padding: 10px;
+    max-width: 100px;
+    margin: 0 auto;
+}
